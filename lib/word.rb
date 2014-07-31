@@ -1,19 +1,19 @@
 class Word
+  @@word_market = {animals: ['hippopotamus', 'sealion', 'giraffe'], programming: ['ruby'] }
+
+  attr_accessor :word, :count, :status, :incorrect
+
   def Word.word_market
     @@word_market
   end
 
-  def Word.random_word
-    @@random_word
+  def set_word(word)
+   @word = @@word_market[word.to_sym].sample
   end
-  @@word_market = {animals: ['hippopotamus', 'sealion', 'giraffe']}
-
-  @@random_word = @@word_market[:animals].sample
-  attr_accessor :word, :count, :status, :incorrect
 
   def initialize
     @status = ""
-    @word = @@random_word
+    # @word = @@random_word
     @correct = []
     @incorrect = []
     @count = 0
@@ -37,7 +37,7 @@ class Word
   end
 
   def letter_in_word(guessed_char)
-    if word.include?(guessed_char)
+    if @word.include?(guessed_char)
       @correct << guessed_char
     else
       @incorrect << guessed_char

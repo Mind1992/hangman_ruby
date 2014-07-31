@@ -16,6 +16,10 @@ end
   def game
     @new_game = Word.new
     @new_board = Game.new
+    Word.word_market.keys.each { |key| puts key }
+    puts "enter the category"
+    input = gets.chomp
+    @new_game.set_word(input)
     puts "wanna guess a letter? (y or n)"
     user_input = gets.chomp
     if user_input == "y"
