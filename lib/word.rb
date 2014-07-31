@@ -1,12 +1,22 @@
 class Word
+  def Word.word_market
+    @@word_market
+  end
 
-  attr_accessor :word
+  def Word.random_word
+    @@random_word
+  end
+  @@word_market = {animals: ['hippopotamus', 'sealion', 'giraffe']}
 
-  def initialize(word)
+  @@random_word = @@word_market[:animals].sample
+  attr_accessor :word, :count, :status, :incorrect
+
+  def initialize
     @status = ""
-    @word = word
+    @word = @@random_word
     @correct = []
     @incorrect = []
+    @count = 0
   end
 
   def split_word
@@ -31,6 +41,7 @@ class Word
       @correct << guessed_char
     else
       @incorrect << guessed_char
+      @count +=1
     end
   end
 
@@ -47,13 +58,3 @@ class Word
     @status = display_word
   end
 end
-word = Word.new('apple')
-
-# word.letter_in_word("p")
-# word.letter_in_word("e")
-# word.letter_in_word("a")
-# word.letter_in_word('s')
-# word.letter_in_word('r')
-word.current_status
-p word.display_word('a')
-p word.display_word('p')
