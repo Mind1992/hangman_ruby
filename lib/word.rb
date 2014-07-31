@@ -13,7 +13,6 @@ class Word
 
   def initialize
     @status = ""
-    # @word = @@random_word
     @correct = []
     @incorrect = []
     @count = 0
@@ -21,19 +20,6 @@ class Word
 
   def split_word
     @split_word = @word.split("")
-  end
-
-  def hide_word
-    split_word
-    word_with_stars = ''
-    split_word.each do |x|
-      word_with_stars << '*'
-    end
-    word_with_stars
-  end
-
-  def current_status
-    @status = hide_word
   end
 
   def letter_in_word(guessed_char)

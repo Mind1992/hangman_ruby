@@ -2,7 +2,7 @@ class Game
   attr_accessor :board
  def initialize
   @board = [
-    "===========|
+"     ===========|
     |           |
     |           |
     |
@@ -16,7 +16,7 @@ class Game
     |
     =========================",
 
-  "  ============|
+  "    ============|
     |           |
     |         +++++
     |         +++++
@@ -116,3 +116,5 @@ class Game
 ]
  end
 end
+g =Game.new
+puts g.board[6]
