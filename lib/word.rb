@@ -9,11 +9,11 @@ class Word
 
   def hide_word
    split_word
-    word_with_underscores = ''
+    word_with_stars = ''
     split_word.each do |x|
-      word_with_underscores << '_ '
+      word_with_stars << '*'
     end
-    word_with_underscores.chop!
+    word_with_stars
   end
 
   def split_word
